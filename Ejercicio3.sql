@@ -1,22 +1,20 @@
- if object_id('peliculas')is not null
-  drop table peliculas;
+ if object_id('agenda') is not null
+  drop table agenda;
 
- create table peliculas(
+ create table agenda(
+  apellido varchar(30),
   nombre varchar(20),
-  actor varchar(20),
-  duracion integer,
-  cantidad integer
+  domicilio varchar(30),
+  telefono varchar(11)
  );
 
- exec sp_columns peliculas;
+ exec sp_tables @table_owner='dbo';
 
- insert into peliculas (nombre, actor, duracion, cantidad)
-  values ('Mision imposible','Tom Cruise',128,3);
- insert into peliculas (nombre, actor, duracion, cantidad)
-  values ('Mision imposible 2','Tom Cruise',130,2);
- insert into peliculas (nombre, actor, duracion, cantidad)
-  values ('Mujer bonita','Julia Roberts',118,3);
- insert into peliculas (nombre, actor, duracion, cantidad)
-  values ('Elsa y Fred','China Zorrilla',110,2);
+ exec sp_columns agenda;
 
- select * from peliculas;
+ insert into agenda (apellido, nombre, domicilio, telefono)
+  values ('Moreno','Alberto','Colon 123','4234567');
+ insert into agenda (apellido,nombre, domicilio, telefono)
+  values ('Torres','Juan','Avellaneda 135','4458787');
+
+ select * from agenda;

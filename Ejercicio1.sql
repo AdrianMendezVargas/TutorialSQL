@@ -1,16 +1,24 @@
-if object_id('agenda') is not null
-  drop table agenda;
+ if object_id('libros') is not null
+  drop table libros;
 
- create table agenda(
-  apellido varchar(30),
-  nombre varchar(20),
-  domicilio varchar(30),
-  telefono varchar(11)
+ exec sp_tables @table_owner='dbo';
+
+ create table libros(
+  titulo varchar(20),
+  autor varchar(30),
+  editorial varchar(15)
+ );
+
+ create table libros(
+  titulo varchar(20),
+  autor varchar(30),
+  editorial varchar(15)
  );
 
  exec sp_tables @table_owner='dbo';
 
- exec sp_columns agenda;
+ exec sp_columns libros;
 
- drop table agenda;
+ drop table libros;
 
+ drop table libros;
